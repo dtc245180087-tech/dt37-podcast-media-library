@@ -1,0 +1,14 @@
+{
+  "name": "dt37-podcast-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Podcast media library API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.14.3"
+  }
+}

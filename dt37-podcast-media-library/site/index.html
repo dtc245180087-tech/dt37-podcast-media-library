@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Soundify — Podcast & Media Library"><title>Soundify — Podcast Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-icon">≋</span> soundify</a>
+    <div class="nav-group"><div class="nav-heading">MENU</div>
+      <button class="nav-item active" data-view="all"><span>⌂</span> Trang chủ</button>
+      <button class="nav-item" data-view="search"><span>⌕</span> Khám phá</button>
+      <button class="nav-item" data-view="recent"><span>◷</span> Nghe gần đây</button>
+    </div>
+    <div class="nav-group"><div class="nav-heading">THƯ VIỆN CỦA BẠN</div>
+      <button class="nav-item" data-view="saved"><span>♡</span> Tập đã thích <span class="count" id="saved-count">0</span></button>
+      <button class="nav-item" data-view="all"><span>▤</span> Tất cả podcast</button>
+    </div>
+    <div class="sidebar-playlist"><div class="playlist-art">♫</div><div><strong>Daily Focus</strong><small>Playlist dành cho bạn</small></div><button id="playlist-play" aria-label="Phát playlist">▶</button></div>
+    <div class="sidebar-bottom"><div class="profile-avatar">U</div><div><strong>Người nghe</strong><small>Gói miễn phí</small></div><span class="online"></span></div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div class="history-buttons"><button aria-label="Quay lại">‹</button><button aria-label="Tiến tới">›</button></div>
+      <label class="search"><span>⌕</span><input id="search-input" type="search" placeholder="Bạn muốn nghe gì hôm nay?"></label>
+      <div class="top-user"><span class="premium">✦ Premium</span><div class="user-dot">U</div></div>
+    </header>
+    <section class="hero">
+      <div class="hero-content"><span class="eyebrow"><i></i> PODCAST NỔI BẬT</span><h1>Âm thanh của<br> <em>những ý tưởng mới.</em></h1>
+      <p>Những câu chuyện hay, góc nhìn mới và cảm hứng cho mỗi ngày của bạn.</p>
+      <div class="hero-actions"><button class="btn-play" id="hero-play">▶ &nbsp; Nghe ngay</button><a class="btn-secondary" href="#library">Khám phá thư viện</a></div>
+      <div class="hero-meta"><span>● 6 tập nổi bật</span><span>•</span><span>Cập nhật mỗi ngày</span></div></div>
+      <div class="hero-art"><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="art-disc"><div class="disc-label">S<br><small>FM</small></div></div><div class="floating-card"><span>♫</span><div><b>Sound of ideas</b><small>Curated for you</small></div></div><div class="equalizer"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </section>
+    <section class="quick-row"><div><span class="quick-icon green">♫</span><div><b>Podcast mỗi ngày</b><small>Nội dung chọn lọc</small></div></div><div><span class="quick-icon purple">♡</span><div><b>Thư viện cá nhân</b><small>Lưu tập yêu thích</small></div></div><div><span class="quick-icon amber">◷</span><div><b>Nghe theo nhịp bạn</b><small>Bắt đầu bất cứ lúc nào</small></div></div></section>
+    <section id="library" class="library">
+      <div class="section-title"><div><span class="eyebrow muted">YOUR SOUNDTRACK</span><h2 id="library-title">Dành riêng cho bạn</h2></div><span id="result-count">6 tập podcast</span></div>
+      <div class="filters" role="group" aria-label="Lọc danh mục"><button class="filter selected" data-category="Tất cả">Tất cả</button><button class="filter" data-category="Phát triển">Phát triển</button><button class="filter" data-category="Công nghệ">Công nghệ</button><button class="filter" data-category="Đời sống">Đời sống</button><button class="filter" data-category="Âm nhạc">Âm nhạc</button></div>
+      <div class="podcast-grid" id="podcast-grid"></div><div class="empty hidden" id="empty-state"><div>⌕</div><h3>Không tìm thấy podcast</h3><p>Thử một từ khóa hoặc danh mục khác nhé.</p></div>
+    </section>
+    <footer><span class="brand small-brand"><span class="brand-icon">≋</span> soundify</span><span>Đề tài 37 · Podcast / Media Library</span><span>Made for your listening moments</span></footer>
+  </main>
+</div>
+<div class="player">
+  <div class="playing"><div class="playing-art" id="player-cover">♫</div><div class="playing-text"><b id="now-title">Chọn một tập để bắt đầu</b><small id="now-subtitle">Soundify · Podcast Library</small></div><button id="like-current" class="like-current" aria-label="Yêu thích">♡</button></div>
+  <div class="player-center"><div class="controls"><button id="previous-button" aria-label="Tập trước">↶</button><button id="main-play" class="main-play" aria-label="Phát hoặc tạm dừng">▶</button><button id="next-button" aria-label="Tập tiếp theo">↷</button></div><div class="progress-row"><span id="current-time">0:00</span><input id="progress" type="range" min="0" max="100" value="0"><span id="total-time">0:00</span></div></div>
+  <div class="player-right"><span>♫</span><div class="volume"><i></i></div><button aria-label="Danh sách">☷</button></div>
+</div><div id="toast" class="toast" role="status" aria-live="polite"></div><script src="app.js"></script>
+</body></html>
